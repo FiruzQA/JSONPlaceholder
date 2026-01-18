@@ -49,17 +49,3 @@ jobs:
         with:
           name: allure-results-python-${{ matrix.python-version }}
           path: allure-results
-
-      - name: Generate Allure Report
-        if: always()
-        uses: simple-elf/allure-report-action@v1.8
-        with:
-          allure_results: allure-results
-          allure_report: allure-report
-
-      - name: Upload Allure Report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-report-python-${{ matrix.python-version }}
-          path: allure-report
